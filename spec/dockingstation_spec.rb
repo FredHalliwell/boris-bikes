@@ -2,8 +2,8 @@ require 'dockingstation.rb'
 
 describe DockingStation do
   it 'can release bike' do
-    station = DockingStation.new
+    docking_station = DockingStation.new
 
-    expect(station.release_bike).to eq (true)
+    expect(docking_station.release_bike).to respond_to(true)
   end
 end
