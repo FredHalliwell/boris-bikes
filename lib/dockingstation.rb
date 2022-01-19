@@ -1,34 +1,36 @@
+require './lib/bike.rb'
+
 class DockingStation
 
-  def release_bike
-    @bike = Bike.new
-  end
+  attr_reader :bikes, :capacity
 
-  def working?(object)
-    if object.has_wheels
-      return true
-    else   
-      return false
+  def initialize(num_bikes=10, capacity=100)
+    @bikes = []
+    @capacity = capacity
+    num_bikes.times{ @bikes << bike = Bike.new }
+    end
+
+  def release_bike
+    #puts "Bike released"
+    if !@bikes.empty?
+      @bike = Bike.new
+    else
+      raise("No bikes available")
     end
   end
-end
 
-class Bike
-
-  def has_wheels
-    return true
+  def return_bike(bike)
+    return raise("Capacity is full") unless @bikes.length < capacity
+    
+    @bikes << bike
   end
 
 end
-
-
 
 docking_station = DockingStation.new
 
-my_bike = Bike.new
 
 
+#docking_station.release_bike
 
-docking_station.release_bike
-
-puts docking_station.working?(my_bike)
+#puts docking_station.working?(docking_station.release_bike)
