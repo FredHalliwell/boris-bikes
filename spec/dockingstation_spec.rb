@@ -33,15 +33,17 @@ describe DockingStation do
   end
 
   it 'doesnt accept more bikes than capacity' do
-    docking_station = DockingStation.new(100)
+    docking_station = DockingStation.new(20)
 
     bike = docking_station.release_bike
 
     expect{docking_station.return_bike(bike)}.to raise_error("Capacity is full")
   end
 
+  it 'allows capacity to be assigned' do
+    docking_station = DockingStation.new(1,100)
 
-   
-    
+    expect((docking_station.capacity)).to eq (100)
+  end
 
 end
