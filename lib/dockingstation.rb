@@ -1,3 +1,4 @@
+#require './lib/bike.rb'
 require './lib/bike.rb'
 
 class DockingStation
@@ -16,7 +17,6 @@ class DockingStation
   def release_bike
     return raise("No bikes available") unless !@bikes.empty?
     @bike = Bike.new
-    
   end
 
   def return_bike(bike)
@@ -32,3 +32,7 @@ class DockingStation
 end
 
 docking_station = DockingStation.new
+
+bike = Bike.new
+
+docking_station.return_bike(bike)

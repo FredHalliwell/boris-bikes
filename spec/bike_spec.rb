@@ -3,7 +3,7 @@ require 'dockingstation.rb'
 describe Bike do
 
   it 'responds to method working' do
-    expect(subject).to respond_to(:working?)
+    expect(subject).to respond_to(:working)
   end
 
   it 'working?' do

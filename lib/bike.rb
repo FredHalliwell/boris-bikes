@@ -6,18 +6,21 @@ class Bike
     @working = working
   end
 
-  def working?
-    puts self.working
-    if self.working == true
-      puts "bike works"
-    else
-      puts "bike doesnt work"
+  def report_working
+    ask_user = ""
+    while ask_user != 'N' or ask_user != 'Y'
+      puts "Is your bike working? Y/N"
+      ask_user = gets.chomp.upcase
+
+      if ask_user == 'Y'
+        @working = true
+        return true
+      elsif ask_user == 'N'
+        @working = false
+        return false
+      end
     end
   end
 end
 
 
-bike = Bike.new
-
-puts bike.working
-puts "running"
